@@ -1,6 +1,6 @@
 ---
 - name: Install packages
-  ansible.builtin.package:
+  ansible.posix.pacman:
     name: "{{ item }}"
     state: present
   with_items:
