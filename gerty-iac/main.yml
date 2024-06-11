@@ -1,1 +1,13 @@
-# Main playbook
+---
+- name: Configure gerty
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install packages
+      ansible.builtin.import_tasks: tasks/install_packages.yml
+
+    - name: Install zsh config
+      ansible.builtin.import_role:
+        name: zsh
