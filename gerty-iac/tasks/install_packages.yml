@@ -1,8 +1,67 @@
 ---
 - name: Install packages
-  ansible.posix.pacman:
+  community.general.pacman:
+    update_cache: true
     name: "{{ item }}"
     state: present
-  with_items:
+  loop:
+    # Core system packages
+    - base
+    - linux
+    - linux-firmware
+
+    # Core CLI utilities
     - vim
+    - base-devel
     - zsh
+    - git
+    - wget
+    - openssh
+    - intel-ucode
+
+    # Other CLI utilities
+    - ncdu
+    - zip
+    - unzip
+    - p7zip
+    - tree
+    - speedtest-cli
+
+    # Peripheral utilities
+    - bluez
+    - bluez-utils
+    - alsa-utils
+    - pulseaudio
+    - cups
+
+    # Wayland
+    - wayland
+    - sway
+    - waybar
+    - swaylock
+    - swaybg
+
+    # GUI utility packages
+    - pavucontrol
+    - qbittorrent
+    - feh
+    - ttf-font-awesome
+    - grim
+    - slurp
+
+    # GUI programs
+    - firefox
+    - discord
+    - thunar
+    - vlc
+    - libreoffice-fresh
+
+    # Programming
+    - code
+    - ruff
+    - go
+    - ansible-lint
+
+    # QEMU
+    - qemu-full
+    - virt-manager

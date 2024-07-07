@@ -1,8 +1,0 @@
----
-- name: Copy .zshrc file to home directory
-  ansible.builtin.copy:
-    src: .zshrc
-    dest: ~/.zshrc
-    owner: sam
-    group: sam
-    mode: '0640'
